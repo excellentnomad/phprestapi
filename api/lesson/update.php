@@ -21,7 +21,7 @@
   // Set ID to UPDATE
   $lesson->id = $data->id;
 
-  $lesson->name = $data->name;
+  $lesson->title = $data->title;
 
   // Update lesson
   if($lesson->update()) {

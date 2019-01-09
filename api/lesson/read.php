@@ -30,7 +30,7 @@
 
           $lesson_item = array(
             'id' => $id,
-            'name' => $name
+            'title' => $title
           );
 
           // Push to "data"
@@ -39,7 +39,7 @@
         // set response code - 200 OK
         http_response_code(200);
         // Turn to JSON & output
-        echo json_encode($lesson_arr);
+        print json_encode($lesson_arr);
 
   } else {
  

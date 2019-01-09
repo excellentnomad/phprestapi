@@ -21,11 +21,11 @@
   // Get lesson
   $lesson->read_single();
 
-  if ($lesson -> name != null) {
+  if ($lesson -> title != null) {
     // Create array
     $lesson_arr = array(
       'id' => $lesson->id,
-      'name' => $lesson->name
+      'title' => $lesson->title
     );
     // set response code - 200 OK
     http_response_code(200);

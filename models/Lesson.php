@@ -6,7 +6,7 @@
 
     // Properties
     public $id;
-    public $name;
+    public $title;
     public $created_at;
 
     // Constructor with DB
@@ -19,7 +19,7 @@
       // Create query
       $query = 'SELECT
         id,
-        name,
+        title,
         created_at
       FROM
         ' . $this->table . '
@@ -41,16 +41,16 @@
       $query = 'INSERT INTO ' .
         $this->table . '
       SET
-        name = :name';
+        title = :title';
 
       // Prepare Statement
       $stmt = $this->conn->prepare($query);
 
       // Clean data
-      $this->name = htmlspecialchars(strip_tags($this->name));
+      $this->title = htmlspecialchars(strip_tags($this->title));
 
       // Bind data
-      $stmt-> bindParam(':name', $this->name);
+      $stmt-> bindParam(':title', $this->title);
 
       // Execute query
       if($stmt->execute()) {
@@ -66,7 +66,7 @@
       // Create query
       $query = 'SELECT
             id,
-            name
+            title
           FROM
             ' . $this->table . '
         WHERE id = ?
@@ -85,7 +85,7 @@
 
       // set properties
       $this->id = $row['id'];
-      $this->name = $row['name'];
+      $this->title = $row['title'];
     }
 
     // Update Lesson
@@ -94,7 +94,7 @@
       $query = 'UPDATE ' .
         $this->table . '
       SET
-        name = :name
+        title = :title
         WHERE
         id = :id';
 
@@ -102,11 +102,11 @@
       $stmt = $this->conn->prepare($query);
 
       // Clean data
-      $this->name = htmlspecialchars(strip_tags($this->name));
+      $this->title = htmlspecialchars(strip_tags($this->title));
       $this->id = htmlspecialchars(strip_tags($this->id));
 
       // Bind data
-      $stmt-> bindParam(':name', $this->name);
+      $stmt-> bindParam(':title', $this->title);
       $stmt-> bindParam(':id', $this->id);
 
       // Execute query

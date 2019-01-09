@@ -17,7 +17,7 @@
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
 
-  $lesson->name = $data->name;
+  $lesson->title = $data->title;
 
   // Create lesson
   if($lesson->create()) {
