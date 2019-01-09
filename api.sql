@@ -3,14 +3,14 @@ CREATE DATABASE `api`;
 
 CREATE TABLE `api`.`lesson` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `api`.`grade` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `lesson_id` int(11) UNSIGNED NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -33,20 +33,21 @@ CREATE TABLE `api`.`question` (
 
 CREATE TABLE `api`.`subject` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
   `lesson_id` int(11) UNSIGNED NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lesson`(`id`, `name`) VALUES 
-(1, "Math"), (2, "Kyrgyz"), (3, "Russian");
+INSERT INTO `lesson`(`id`, `title`) VALUES 
+(1, "Mатематика"), (2, "Кыргыз тили Ө"), (3, "Орус тили");
 
-INSERT INTO `grade`(`id`, `name`, `lesson_id`) VALUES 
-(1, "5 класс", 1), (2, "6 класс", 1), (3, "6 класс", 1);
+INSERT INTO `grade`(`id`, `title`, `lesson_id`) VALUES 
+(1, "5 класс", 1), (2, "6 класс", 1), (3, "7 класс", 1),
+(4, "8 класс", 2), (5, "9 класс", 2), (6, "10 класс", 3);
 
-INSERT INTO `subject`(`id`, `name`, `order`, `lesson_id`) VALUES
+INSERT INTO `subject`(`id`, `title`, `order`, `lesson_id`) VALUES
 (1, "Addition and subtraction of natural numbers", 1, 1),
 (2, "Multiplication and division of natural numbers", 2, 1);
 
